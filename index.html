@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Dental Studio | Premium Dental Care</title>
+  <meta name="description" content="Nova Dental Studio offers premium, gentle dental care: check-ups, whitening, implants, clear aligners, root canal therapy and cosmetic veneers.">
+  <meta name="theme-color" content="#0a1b33">
+
+  <!-- Free Google Fonts: Fraunces (headings) + Plus Jakarta Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tiny emoji favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🦷</text></svg>">
+
+  <!-- Tells the CSS that JavaScript is running (scroll animations depend on this) -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Reusable SVG icons (defined once, used many times with <use>) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-tooth" viewBox="0 0 120 150">
+      <path d="M60 18C48 8 22 8 16 34c-4 18 6 32 10 52 3 16 5 44 17 48 11 3 11-26 17-34 6 8 6 37 17 34 12-4 14-32 17-48 4-20 14-34 10-52C98 8 72 8 60 18z"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <!-- Service icons -->
+    <symbol id="i-checkup" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M19 16l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2z"/></symbol>
+    <symbol id="i-implant" viewBox="0 0 24 24"><path d="M6 3h12v5c0 2.2-2.7 3-6 3s-6-.8-6-3V3z"/><path d="M9 14h6M9.5 17h5M10.5 20h3"/></symbol>
+    <symbol id="i-aligner" viewBox="0 0 24 24"><path d="M4 10c2-4 14-4 16 0"/><path d="M4 14c2 4 14 4 16 0"/><path d="M8 8.2v7.6M12 7.6v8.8M16 8.2v7.6"/></symbol>
+    <symbol id="i-rootcanal" viewBox="0 0 24 24"><path d="M7 3C4.5 3 3 5 3 7.5c0 3 1.5 4 2 7 .3 2 .8 6 2.2 6 1.3 0 1.3-4 2.8-4s1.5 4 2.8 4c1.4 0 1.9-4 2.2-6 .5-3 2-4 2-7C21 5 19.5 3 17 3c-1.5 0-2.3.8-5 .8S8.5 3 7 3z"/><path d="M12 8v6"/></symbol>
+    <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14c1.2 1.8 2.5 2.5 4 2.5s2.8-.7 4-2.5"/><path d="M9 9.5h.01M15 9.5h.01"/></symbol>
+    <!-- Social icons -->
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+    <symbol id="i-twitter" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============ TOP INFO BAR ============ -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <p class="topbar-item topbar-hide-xs"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg> Mon – Sat · 9:00 AM – 8:00 PM</p>
+      <p class="topbar-item topbar-hide-md">Now welcoming new patients · Same-week appointments available</p>
+      <a class="topbar-item" href="tel:+923000000000"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg> +92 300 0000000</a>
+    </div>
+  </div>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo" aria-label="Nova Dental Studio, home">
+        <span class="logo-mark">
+          <svg viewBox="0 0 120 150" aria-hidden="true"><use href="#i-tooth"/></svg>
+        </span>
+        <span class="logo-text">Nova<span> Dental Studio</span></span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <a href="#booking" class="btn btn-primary nav-cta">Book Appointment</a>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="pill reveal"><span class="pill-dot"></span> Premium family &amp; cosmetic dentistry</span>
+          <h1 class="reveal" data-delay="80">Your healthiest, most confident <em>smile</em> starts here.</h1>
+          <p class="hero-lead reveal" data-delay="160">
+            Nova Dental Studio blends advanced technology with a calm, spa-like experience.
+            Gentle, precise and beautifully personal dental care for every member of your family.
+          </p>
+          <div class="hero-actions reveal" data-delay="240">
+            <a href="#booking" class="btn btn-primary btn-lg">Book Appointment
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a href="#services" class="btn btn-glass btn-lg">Explore Services</a>
+          </div>
+          <div class="hero-stats reveal" data-delay="320">
+            <div>
+              <strong class="counter" data-target="12" data-suffix="+">12+</strong>
+              <span>Years of experience</span>
+            </div>
+            <div>
+              <strong class="counter" data-target="8500" data-suffix="+">8,500+</strong>
+              <span>Happy patients</span>
+            </div>
+            <div>
+              <strong class="counter" data-target="4.9" data-decimals="1">4.9</strong>
+              <span>Average rating</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" data-delay="200" role="img" aria-label="Illustration of a healthy, glowing tooth">
+          <div class="hero-ring"></div>
+          <div class="hero-arch">
+            <!--
+              TO USE A REAL PHOTO LATER: save a photo as hero.jpg in this folder, delete the whole
+              <svg class="hero-illustration"> ... </svg> block below, and put this line in its place:
+              <img class="hero-photo" src="hero.jpg" alt="Smiling patient at Nova Dental Studio">
+            -->
+            <svg class="hero-illustration" viewBox="0 0 400 560" aria-hidden="true">
+              <defs>
+                <linearGradient id="toothBody" x1="0.1" y1="0" x2="0.9" y2="1">
+                  <stop offset="0" stop-color="#ffffff"/>
+                  <stop offset="0.55" stop-color="#eaf8f6"/>
+                  <stop offset="1" stop-color="#b9e4df"/>
+                </linearGradient>
+                <linearGradient id="toothShade" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0.55" stop-color="#0a1b33" stop-opacity="0"/>
+                  <stop offset="1" stop-color="#0a1b33" stop-opacity="0.16"/>
+                </linearGradient>
+                <radialGradient id="toothGlow" cx="0.5" cy="0.5" r="0.5">
+                  <stop offset="0" stop-color="#6ff0e2" stop-opacity="0.55"/>
+                  <stop offset="1" stop-color="#6ff0e2" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+
+              <circle cx="200" cy="285" r="205" fill="url(#toothGlow)"/>
+              <circle cx="200" cy="285" r="150" fill="none" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+              <circle cx="200" cy="285" r="195" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1.5"/>
+              <ellipse cx="200" cy="408" rx="92" ry="14" fill="#04101f" opacity="0.35"/>
+
+              <g transform="translate(95 155) scale(1.75)">
+                <path fill="url(#toothBody)" d="M60 18C48 8 22 8 16 34c-4 18 6 32 10 52 3 16 5 44 17 48 11 3 11-26 17-34 6 8 6 37 17 34 12-4 14-32 17-48 4-20 14-34 10-52C98 8 72 8 60 18z"/>
+                <path fill="url(#toothShade)" d="M60 18C48 8 22 8 16 34c-4 18 6 32 10 52 3 16 5 44 17 48 11 3 11-26 17-34 6 8 6 37 17 34 12-4 14-32 17-48 4-20 14-34 10-52C98 8 72 8 60 18z"/>
+                <path d="M28 31c4-9 15-12 24-7" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
+                <path d="M23 47c-1.5-4-1-8 .5-11" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
+              </g>
+
+              <g transform="translate(78 150)"><path class="tw" fill="#ffffff" d="M0-14C1.5-5 5-1.5 14 0 5 1.5 1.5 5 0 14-1.5 5-5 1.5-14 0-5-1.5-1.5-5 0-14z"/></g>
+              <g transform="translate(330 200) scale(0.7)"><path class="tw tw2" fill="#ffffff" d="M0-14C1.5-5 5-1.5 14 0 5 1.5 1.5 5 0 14-1.5 5-5 1.5-14 0-5-1.5-1.5-5 0-14z"/></g>
+              <g transform="translate(318 400) scale(0.9)"><path class="tw tw3" fill="#ffffff" d="M0-14C1.5-5 5-1.5 14 0 5 1.5 1.5 5 0 14-1.5 5-5 1.5-14 0-5-1.5-1.5-5 0-14z"/></g>
+              <g transform="translate(70 390) scale(0.6)"><path class="tw tw4" fill="#ffffff" d="M0-14C1.5-5 5-1.5 14 0 5 1.5 1.5 5 0 14-1.5 5-5 1.5-14 0-5-1.5-1.5-5 0-14z"/></g>
+            </svg>
+          </div>
+
+          <div class="float-card float-1">
+            <span class="fc-icon"><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg></span>
+            <div><strong>4.9 / 5</strong><span>Patient rating</span></div>
+          </div>
+          <div class="float-card float-2">
+            <span class="fc-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+            <div><strong>Same-week visits</strong><span>Flexible scheduling</span></div>
+          </div>
+          <div class="float-card float-3">
+            <span class="fc-icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+            <div><strong>Gentle care</strong><span>Comfort first</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TRUST STRIP ============ -->
+    <section class="trust" aria-label="Why patients choose us">
+      <div class="container">
+        <ul class="trust-card reveal">
+          <li>
+            <span class="trust-icon"><svg class="icon" aria-hidden="true"><use href="#i-checkup"/></svg></span>
+            <div><strong>Sterile &amp; safe</strong><span>Hospital-grade protocols</span></div>
+          </li>
+          <li>
+            <span class="trust-icon"><svg class="icon" aria-hidden="true"><use href="#i-sparkle"/></svg></span>
+            <div><strong>Digital technology</strong><span>Low-radiation imaging</span></div>
+          </li>
+          <li>
+            <span class="trust-icon"><svg class="icon" aria-hidden="true"><use href="#i-smile"/></svg></span>
+            <div><strong>Comfort-first care</strong><span>Anxious patients welcome</span></div>
+          </li>
+          <li>
+            <span class="trust-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+            <div><strong>Flexible hours</strong><span>Open six days a week</span></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section section-cream" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Our Services</span>
+          <h2>Complete dental care, beautifully delivered</h2>
+          <p>From routine prevention to complete smile makeovers, everything you need under one calm, modern roof.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <span class="service-num" aria-hidden="true">01</span>
+            <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="#i-checkup"/></svg></div>
+            <h3>General Check-up &amp; Cleaning</h3>
+            <p>Thorough exams, digital X-rays and professional cleaning to keep your smile healthy and prevent problems early.</p>
+            <a href="#booking" class="service-link" data-service="General Check-up &amp; Cleaning">Book this service
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+
+          <article class="service-card reveal" data-delay="100">
+            <span class="service-num" aria-hidden="true">02</span>
+            <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="#i-sparkle"/></svg></div>
+            <h3>Teeth Whitening</h3>
+            <p>Safe, dentist-supervised whitening that brightens your smile several shades in a single comfortable visit.</p>
+            <a href="#booking" class="service-link" data-service="Teeth Whitening">Book this service
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+
+          <article class="service-card reveal" data-delay="200">
+            <span class="service-num" aria-hidden="true">03</span>
+            <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="#i-implant"/></svg></div>
+            <h3>Dental Implants</h3>
+            <p>Permanent, natural-looking replacements for missing teeth, planned with precision using digital imaging.</p>
+            <a href="#booking" class="service-link" data-service="Dental Implants">Book this service
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+
+          <article class="service-card reveal">
+            <span class="service-num" aria-hidden="true">04</span>
+            <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="#i-aligner"/></svg></div>
+            <h3>Clear Aligners</h3>
+            <p>Straighten your teeth discreetly with custom clear aligners. Comfortable, removable and nearly invisible.</p>
+            <a href="#booking" class="service-link" data-service="Clear Aligners">Book this service
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+
+          <article class="service-card reveal" data-delay="100">
+            <span class="service-num" aria-hidden="true">05</span>
+            <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="#i-rootcanal"/></svg></div>
+            <h3>Root Canal Therapy</h3>
+            <p>Relieve tooth pain and save your natural tooth with gentle, modern root canal treatment.</p>
+            <a href="#booking" class="service-link" data-service="Root Canal Therapy">Book this service
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+
+          <article class="service-card reveal" data-delay="200">
+            <span class="service-num" aria-hidden="true">06</span>
+            <div class="service-icon"><svg class="icon" aria-hidden="true"><use href="#i-smile"/></svg></div>
+            <h3>Cosmetic Veneers</h3>
+            <p>Ultra-thin porcelain veneers crafted to reshape, brighten and perfect your smile with natural beauty.</p>
+            <a href="#booking" class="service-link" data-service="Cosmetic Veneers">Book this service
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-visual reveal">
+          <div class="about-panel">
+            <svg class="about-watermark" viewBox="0 0 120 150" aria-hidden="true"><use href="#i-tooth"/></svg>
+            <p class="about-quote">Calm, modern and meticulous: dentistry the way it should feel.</p>
+            <div class="about-tags">
+              <span>Digital X-rays</span>
+              <span>Gentle sedation</span>
+              <span>Hospital-grade sterilisation</span>
+            </div>
+          </div>
+          <div class="about-badge">
+            <strong>2012</strong>
+            <span>Caring for families since</span>
+          </div>
+          <div class="about-mini">
+            <span class="fc-icon"><svg class="icon" aria-hidden="true"><use href="#i-checkup"/></svg></span>
+            <div><strong>Safety-first care</strong><span>Every patient, every visit</span></div>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <span class="eyebrow reveal">About the Clinic</span>
+          <h2 class="reveal" data-delay="80">A dental studio designed around your comfort</h2>
+          <p class="reveal" data-delay="140">
+            Nova Dental Studio was founded on a simple belief: going to the dentist should feel reassuring,
+            not stressful. Every detail, from our relaxing treatment rooms to our up-to-date technology,
+            is chosen to make your visit smooth, precise and pain-conscious.
+          </p>
+          <p class="reveal" data-delay="200">
+            We take time to listen, explain every option clearly and build long-term relationships
+            with patients of all ages.
+          </p>
+
+          <ul class="feature-list">
+            <li class="reveal" data-delay="100">
+              <span class="check"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+              <div><strong>Hospital-grade sterilisation</strong><span>Strict infection-control protocols for every patient.</span></div>
+            </li>
+            <li class="reveal" data-delay="160">
+              <span class="check"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+              <div><strong>Digital imaging &amp; planning</strong><span>Accurate diagnosis with low-radiation digital X-rays.</span></div>
+            </li>
+            <li class="reveal" data-delay="220">
+              <span class="check"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+              <div><strong>Transparent pricing</strong><span>Clear treatment plans and costs before we begin.</span></div>
+            </li>
+            <li class="reveal" data-delay="280">
+              <span class="check"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+              <div><strong>Comfort-first approach</strong><span>Soothing environment, gentle techniques, nervous patients welcome.</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DENTIST PROFILE ============ -->
+    <section class="section section-cream" id="dentist">
+      <div class="container dentist-grid">
+        <div class="dentist-photo reveal">
+          <!-- Illustrated portrait. Replace this whole <svg> with an <img> of a real photo later. -->
+          <svg viewBox="0 0 400 480" role="img" aria-label="Illustrated portrait of Dr. Amina Rahman">
+            <defs>
+              <linearGradient id="pbg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f8f3ea"/>
+                <stop offset="1" stop-color="#b9e8e1"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="480" fill="url(#pbg)"/>
+            <circle cx="330" cy="80" r="120" fill="#ffffff" opacity="0.45"/>
+            <circle cx="40" cy="430" r="140" fill="#ffffff" opacity="0.35"/>
+            <path d="M112 250C98 140 150 88 206 90c58 2 92 50 80 150-4 40 8 90 16 118-44 16-158 16-200 0 10-30 18-64 10-108z" fill="#241815"/>
+            <rect x="176" y="276" width="48" height="70" rx="20" fill="#e0a98a"/>
+            <path d="M36 480C36 376 114 336 200 336s164 40 164 144z" fill="#ffffff"/>
+            <path d="M148 340l52 94 52-94c-26 14-78 14-104 0z" fill="#14a99c"/>
+            <path d="M148 340l-40 64 46 76 6-100z" fill="#eef3f7"/>
+            <path d="M252 340l40 64-46 76-6-100z" fill="#eef3f7"/>
+            <ellipse cx="200" cy="216" rx="66" ry="78" fill="#f1c8aa"/>
+            <path d="M130 214C122 142 164 102 214 106c44 4 72 40 66 98-14-42-44-66-84-66-28 0-52 22-66 76z" fill="#241815"/>
+            <circle cx="175" cy="220" r="5" fill="#241815"/>
+            <circle cx="225" cy="220" r="5" fill="#241815"/>
+            <path d="M161 202q14-9 28 0M211 202q14-9 28 0" stroke="#241815" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M200 228q-7 15 0 21 4 2 9-1" stroke="#cf9575" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M172 256Q200 286 228 256Q200 264 172 256z" fill="#ffffff" stroke="#a8553f" stroke-width="3.5" stroke-linejoin="round"/>
+            <circle cx="154" cy="248" r="11" fill="#e98f84" opacity="0.28"/>
+            <circle cx="246" cy="248" r="11" fill="#e98f84" opacity="0.28"/>
+            <use href="#i-tooth" x="256" y="388" width="20" height="25" fill="#14a99c"/>
+          </svg>
+          <div class="photo-tag">
+            <strong>Dr. Amina Rahman</strong>
+            <span>Lead Dentist &amp; Founder</span>
+          </div>
+        </div>
+
+        <div class="dentist-content">
+          <span class="eyebrow reveal">Meet Your Dentist</span>
+          <h2 class="reveal" data-delay="80">Dr. Amina Rahman</h2>
+          <p class="dentist-role reveal" data-delay="120">BDS, MDS (Prosthodontics) · Cosmetic &amp; Implant Dentistry</p>
+          <p class="reveal" data-delay="160">
+            With over twelve years of experience, Dr. Rahman is known for her gentle hand, meticulous
+            attention to detail and her gift for putting anxious patients at ease. She leads every
+            treatment plan personally, from the first consultation to the final polish.
+          </p>
+
+          <div class="dentist-stats reveal" data-delay="200">
+            <div><strong>12+</strong><span>Years of practice</span></div>
+            <div><strong>5,000+</strong><span>Smiles designed</span></div>
+            <div><strong>MDS</strong><span>Prosthodontics</span></div>
+          </div>
+
+          <ul class="chips reveal" data-delay="240">
+            <li>Smile Design</li>
+            <li>Dental Implants</li>
+            <li>Porcelain Veneers</li>
+            <li>Clear Aligners</li>
+            <li>Anxiety-Free Dentistry</li>
+          </ul>
+
+          <blockquote class="dentist-quote reveal" data-delay="280">
+            “A great smile isn't just about looking good. It's about feeling comfortable and confident every day.”
+          </blockquote>
+
+          <a href="#booking" class="btn btn-primary reveal" data-delay="320">Book a consultation
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section section-dark" id="reviews">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow eyebrow-light">Patient Stories</span>
+          <h2>Loved by our patients</h2>
+          <p>Real smiles, real confidence. Here is what a few of our patients say about their experience. <em>(Sample testimonials for this portfolio demo.)</em></p>
+          <div class="rating-summary">
+            <span class="rs-stars" aria-hidden="true">
+              <svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg>
+            </span>
+            <strong>4.9</strong><span>average patient rating</span>
+          </div>
+        </div>
+
+        <div class="carousel reveal" id="carousel">
+          <div class="carousel-track" id="carousel-track">
+
+            <article class="t-card">
+              <div class="stars" aria-label="5 out of 5 stars">
+                <svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg>
+              </div>
+              <blockquote>I used to dread dentist visits. Here everything was explained calmly and I felt nothing but comfort. My whitening results are beautiful.</blockquote>
+              <div class="t-person"><span class="avatar">SM</span><div><strong>Sara Malik</strong><span>Teeth Whitening</span></div></div>
+            </article>
+
+            <article class="t-card">
+              <div class="stars" aria-label="5 out of 5 stars">
+                <svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg>
+              </div>
+              <blockquote>My implant looks and feels completely natural. The planning was precise, the recovery was smooth and the whole team checked in on me afterwards.</blockquote>
+              <div class="t-person"><span class="avatar">HA</span><div><strong>Hamza Ahmed</strong><span>Dental Implants</span></div></div>
+            </article>
+
+            <article class="t-card">
+              <div class="stars" aria-label="5 out of 5 stars">
+                <svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg>
+              </div>
+              <blockquote>The clear aligners were discreet and the progress updates kept me motivated. My teeth have never looked this straight, and nobody noticed I was wearing them.</blockquote>
+              <div class="t-person"><span class="avatar">AT</span><div><strong>Ayesha Tariq</strong><span>Clear Aligners</span></div></div>
+            </article>
+
+            <article class="t-card">
+              <div class="stars" aria-label="5 out of 5 stars">
+                <svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg>
+              </div>
+              <blockquote>I came in with severe tooth pain and left relieved. The root canal was far easier than I feared. Professional, kind and very reassuring.</blockquote>
+              <div class="t-person"><span class="avatar">BH</span><div><strong>Bilal Hussain</strong><span>Root Canal Therapy</span></div></div>
+            </article>
+
+            <article class="t-card">
+              <div class="stars" aria-label="5 out of 5 stars">
+                <svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg>
+              </div>
+              <blockquote>My veneers transformed my smile and my confidence. Dr. Rahman listened carefully to what I wanted, and the result looks completely like me.</blockquote>
+              <div class="t-person"><span class="avatar">MF</span><div><strong>Maria Fatima</strong><span>Cosmetic Veneers</span></div></div>
+            </article>
+
+            <article class="t-card">
+              <div class="stars" aria-label="5 out of 5 stars">
+                <svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#i-star"/></svg>
+              </div>
+              <blockquote>We bring the whole family here. The kids actually look forward to their check-ups, and booking is always quick and easy.</blockquote>
+              <div class="t-person"><span class="avatar">UR</span><div><strong>Usman Raza</strong><span>Family Check-ups</span></div></div>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <button class="ctrl" id="prev" type="button" aria-label="Previous testimonial">
+            <svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </button>
+          <div class="dots" id="dots" aria-label="Testimonial navigation"></div>
+          <button class="ctrl" id="next" type="button" aria-label="Next testimonial">
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BOOKING ============ -->
+    <section class="section section-cream" id="booking">
+      <div class="container booking-grid">
+
+        <div class="booking-info reveal">
+          <span class="eyebrow eyebrow-light">Book Online</span>
+          <h2>Reserve your visit in under a minute</h2>
+          <p>Choose a service and a preferred date, and our team will confirm your appointment time.</p>
+
+          <ol class="steps">
+            <li><span>1</span><div><strong>Tell us what you need</strong><small>Pick a service and your preferred date.</small></div></li>
+            <li><span>2</span><div><strong>We confirm your time</strong><small>Our team contacts you to finalise the slot.</small></div></li>
+            <li><span>3</span><div><strong>Visit us, stress-free</strong><small>Relax, we'll take it from here.</small></div></li>
+          </ol>
+
+          <div class="booking-hours">
+            <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
+            <div><strong>Mon – Sat: 9:00 AM – 8:00 PM</strong><small>Closed on Sundays</small></div>
+          </div>
+
+          <a href="https://wa.me/923000000000" class="btn btn-glass btn-block booking-wa" data-whatsapp data-message="Hello Nova Dental Studio, I would like help booking an appointment." target="_blank" rel="noopener noreferrer">
+            <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg> Prefer WhatsApp? Message us
+          </a>
+        </div>
+
+        <div class="booking-card reveal" data-delay="120">
+          <form id="booking-form" novalidate>
+            <h3>Request an appointment</h3>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Full name</label>
+                <input type="text" id="name" name="name" placeholder="e.g. Sara Khan" autocomplete="name" required>
+                <span class="error" id="name-error" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="phone">Phone number</label>
+                <input type="tel" id="phone" name="phone" placeholder="e.g. +92 300 1234567" autocomplete="tel" required>
+                <span class="error" id="phone-error" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="service">Service</label>
+                <select id="service" name="service" required>
+                  <option value="">Select a service</option>
+                  <option value="General Check-up &amp; Cleaning">General Check-up &amp; Cleaning</option>
+                  <option value="Teeth Whitening">Teeth Whitening</option>
+                  <option value="Dental Implants">Dental Implants</option>
+                  <option value="Clear Aligners">Clear Aligners</option>
+                  <option value="Root Canal Therapy">Root Canal Therapy</option>
+                  <option value="Cosmetic Veneers">Cosmetic Veneers</option>
+                  <option value="Other / Not sure yet">Other / Not sure yet</option>
+                </select>
+                <span class="error" id="service-error" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="date">Preferred date</label>
+                <input type="date" id="date" name="date" required>
+                <span class="error" id="date-error" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="notes">Notes <span class="optional">(optional)</span></label>
+              <textarea id="notes" name="notes" rows="3" placeholder="Anything we should know? e.g. tooth pain, dental anxiety…"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Request Appointment</button>
+            <p class="form-note">This is a portfolio demo. No information is sent or stored.</p>
+          </form>
+
+          <div class="form-success" id="form-success" hidden>
+            <div class="success-icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></div>
+            <h3>Request received!</h3>
+            <p>Thank you. In a real clinic, our team would contact you shortly to confirm your appointment.</p>
+            <dl class="success-summary" id="success-summary"></dl>
+            <a href="#" class="btn btn-whatsapp btn-block" id="whatsapp-confirm" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg> Confirm on WhatsApp
+            </a>
+            <button type="button" class="btn btn-ghost btn-block" id="book-another">Make another request</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Contact Us</span>
+          <h2>We'd love to meet you</h2>
+          <p>Visit the studio, call, or send a message. We usually reply within a few hours.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card reveal">
+            <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
+            <h3>Visit us</h3>
+            <p>Level 2, Crescent Plaza<br>Demo Avenue, Islamabad<br>Pakistan</p>
+          </div>
+          <div class="contact-card reveal" data-delay="100">
+            <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+            <h3>Call us</h3>
+            <p><a href="tel:+923000000000">+92 300 0000000</a><br>Mon – Sat, 9 AM – 8 PM</p>
+          </div>
+          <div class="contact-card reveal" data-delay="200">
+            <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
+            <h3>Email us</h3>
+            <p><a href="mailto:hello@novadentalstudio.example">hello@novadentalstudio.example</a><br>We reply within 24 hours</p>
+          </div>
+          <div class="contact-card reveal" data-delay="300">
+            <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+            <h3>Opening hours</h3>
+            <p>Mon – Sat: 9:00 AM – 8:00 PM<br>Sunday: Closed</p>
+          </div>
+        </div>
+
+        <div class="cta-band reveal">
+          <div class="cta-text">
+            <h3>Prefer to chat? Message us on WhatsApp.</h3>
+            <p>Quick questions, appointment changes or a photo of your concern. We're happy to help.</p>
+          </div>
+          <a href="https://wa.me/923000000000" class="btn btn-light btn-lg" data-whatsapp data-message="Hello Nova Dental Studio, I have a question about your services." target="_blank" rel="noopener noreferrer">
+            <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg> Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo logo-light" aria-label="Nova Dental Studio, home">
+          <span class="logo-mark"><svg viewBox="0 0 120 150" aria-hidden="true"><use href="#i-tooth"/></svg></span>
+          <span class="logo-text">Nova<span> Dental Studio</span></span>
+        </a>
+        <p>Premium, gentle dental care for every smile in a calm, modern setting.</p>
+        <!-- Replace these links with the clinic's real social pages later -->
+        <div class="social">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg></a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><svg class="icon" aria-hidden="true"><use href="#i-twitter"/></svg></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg class="icon" aria-hidden="true"><use href="#i-youtube"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About the clinic</a></li>
+          <li><a href="#dentist">Our dentist</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#booking">Book appointment</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Check-up &amp; Cleaning</a></li>
+          <li><a href="#services">Teeth Whitening</a></li>
+          <li><a href="#services">Dental Implants</a></li>
+          <li><a href="#services">Clear Aligners</a></li>
+          <li><a href="#services">Cosmetic Veneers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span>Level 2, Crescent Plaza, Islamabad</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+923000000000">+92 300 0000000</a></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:hello@novadentalstudio.example">hello@novadentalstudio.example</a></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span>Mon – Sat: 9 AM – 8 PM</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> Nova Dental Studio. All rights reserved.</p>
+      <p>Portfolio demo project. Not a real clinic.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp button -->
+  <a href="https://wa.me/923000000000" class="whatsapp-float" data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+    <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>
+    <span class="wa-label">Chat with us</span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
